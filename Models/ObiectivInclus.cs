@@ -1,4 +1,4 @@
-﻿namespace proiectChioranAndrei.Models.ViewModels
+﻿namespace proiectChioranAndrei.Models
 {
     public class ObiectivInclus
     {
