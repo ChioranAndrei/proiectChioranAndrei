@@ -1,0 +1,67 @@
+﻿@page "/{searchString?}"
+@model proiectChioranAndrei.Pages.ObiectiveTuristice.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Mai jos se poate vedea lista tuturor obiectivelor</h1>
+
+<p>
+    Creati un nou obiectiv
+    <a asp-page="Create">Create New</a>
+</p>
+<form>
+    <p>
+        <strong>  Puteti cauta obiective <br /> <input type="text" asp-for="SearchString" /></strong>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ObiectivTuristic[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObiectivTuristic[0].Strada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObiectivTuristic[0].Numar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObiectivTuristic[0].Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObiectivTuristic[0].Oras.NumeOras)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ObiectivTuristic) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Strada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oras.NumeOras)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

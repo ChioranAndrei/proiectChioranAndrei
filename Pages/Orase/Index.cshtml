@@ -1,0 +1,90 @@
+﻿@page "{id;int?}"
+@model proiectChioranAndrei.Pages.Orase.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<img width="90" src="~/images/city.jpeg" /> Lista tututor oraselor
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras[0].NumeOras)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras[0].Tara.NumeTara)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrasData.Orase) {
+            string selectedRow = "";
+            if (item.ID == Model.OrasID)
+            {
+                selectedRow = "table-success";
+            }
+
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeOras)
+
+            </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.Tara.NumeTara)
+                </td>
+
+            <td>
+                 <a asp-page="./Index" asp-route-id="@item.ID">Select</a>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@if (Model.OrasData.ObiectiveTuristice != null)
+{
+    <h3>ObiectiveTuristice din anumite Orase</h3>
+    <table class="table">
+
+        @foreach (var item in Model.OrasData.Orase)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.OrasID)
+            {
+                selectedRow = "table-success";
+            }
+            
+
+               
+                   
+                        foreach (var b in item.ObiectivTuristic)
+
+
+                {
+                    <tr class="@selectedRow">
+                        <td>@item.NumeOras</td>
+                        <td> @b.Nume </td>
+                        <td> @b.Strada </td>
+</tr>
+                           
+                           
+                            
+                            
+                        
+                    }
+                
+            
+        }
+    </table> }

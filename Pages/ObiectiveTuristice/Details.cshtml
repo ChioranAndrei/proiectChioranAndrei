@@ -1,0 +1,49 @@
+﻿@page
+@model proiectChioranAndrei.Pages.ObiectiveTuristice.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ObiectivTuristic</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ObiectivTuristic.Nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ObiectivTuristic.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ObiectivTuristic.Strada)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ObiectivTuristic.Strada)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ObiectivTuristic.Numar)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ObiectivTuristic.Numar)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ObiectivTuristic.Telefon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ObiectivTuristic.Telefon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ObiectivTuristic.Oras)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ObiectivTuristic.Oras.NumeOras)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ObiectivTuristic?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
